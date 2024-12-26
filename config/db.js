@@ -1,12 +1,16 @@
-const mongose = require("mongoose");
+const mongoose = require("mongoose");
 
-const coonectDB = async () => {
+const connectDB = async () => {
   try {
-    await mongose.connect(process.env.MONGO_URI);
-    console.log("DB connected".bgGreen);
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log(`MongoDB Connected: ${conn.connection.host}`.green.underline);
   } catch (error) {
-    console.log(error);
+    console.log(`Error: ${error.message}`.red);
+    process.exit(1); // Xatolik bo'lsa jarayonni to'xtatadi
   }
 };
 
-module.exports = coonectDB;
+module.exports = connectDB;

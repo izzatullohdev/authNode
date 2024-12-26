@@ -1,23 +1,24 @@
-const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
 
-const options = {
+const swaggerSpec = swaggerJsDoc({
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "API Loyihasi",
+      title: "API Documentation",
       version: "1.0.0",
-      description: "Bu API loyihasi uchun avtomatlashtirilgan dokumentatsiya",
+      description: "API uchun Swagger dokumentatsiyasi",
     },
     servers: [
       {
-        url: "http://localhost:5000", // API serveringiz manzili
+        url: "https://authnode-llkl.onrender.com/", // Server URL
       },
     ],
   },
-  apis: ["./routes/*.js"], // Endpoint joylashgan fayllarni ko'rsating
+  apis: ["./routes/*.js"], // Swagger uchun yo'llar
+});
+
+module.exports = {
+  swaggerUI,
+  swaggerSpec,
 };
-
-const swaggerSpec = swaggerJSDoc(options);
-
-module.exports = { swaggerUI, swaggerSpec };
