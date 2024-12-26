@@ -14,7 +14,7 @@ const {
 
 /**
  * @swagger
- * /register:
+ * auth/register:
  *   post:
  *     summary: Foydalanuvchini ro'yxatdan o'tkazish
  *     description: Yangi foydalanuvchi ro'yxatdan o'tkazish uchun endpoint
@@ -44,7 +44,7 @@ router.post("/register", register);
 
 /**
  * @swagger
- * /login:
+ * auth/login:
  *   post:
  *     summary: Foydalanuvchi tizimga kirishi
  *     description: Foydalanuvchi tizimga kirish uchun endpoint
@@ -79,7 +79,7 @@ router.post("/login", loginLimiter, login);
 
 /**
  * @swagger
- * /logout:
+ * auth/logout:
  *   post:
  *     summary: Foydalanuvchini tizimdan chiqarish
  *     description: Foydalanuvchini tizimdan chiqish uchun endpoint
@@ -91,7 +91,7 @@ router.post("/logout", logout);
 
 /**
  * @swagger
- * /me:
+ * auth/me:
  *   get:
  *     summary: Foydalanuvchi haqidagi ma'lumotlarni olish
  *     description: Login qilingan foydalanuvchi haqidagi ma'lumotlarni olish uchun endpoint
