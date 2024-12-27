@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 require("colors");
 const cors = require("cors");
+const { swaggerUI, swaggerSpec } = require("./swaggerConfig");
 const coonectDB = require("./config/db");
 coonectDB();
 const app = express();
@@ -17,8 +18,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use(cors());
-const { swaggerUI, swaggerSpec } = require("./swaggerConfig");
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 // Routes
 
